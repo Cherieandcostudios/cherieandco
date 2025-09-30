@@ -1,0 +1,1344 @@
+/* ✅ Import Inter Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Reset */
+    * { 
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box; 
+    }
+    
+    html, body { 
+      width: 100%; 
+      overflow-x: hidden; 
+    }
+    
+    body {
+      font-family: Inter, sans-serif;
+      color: #000; 
+      background: #fff;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: absolute; 
+      top: 0; 
+      left: 0;
+      width: 100%; 
+      padding: 20px 80px;
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center;
+      z-index: 1000;
+      background: #fff;   /* 👈 solid white background */
+    }
+    .menu-toggle {
+  display: none; /* currently hidden */
+}
+    .navbar .logo img { 
+      height: 24px; 
+      max-width: 100%; 
+    }
+    
+    .navbar ul { 
+      list-style: none; 
+      display: flex; 
+      gap: 40px; 
+    }
+    
+    .navbar ul li a {
+      text-decoration: none; 
+      color: #333;
+      font-size: 16px; 
+      font-weight: 500;
+      padding: 14px 29px;
+      border-radius: 100px;
+      transition: color 0.3s ease;
+    }
+    
+    .navbar ul li a:hover { 
+      color: #fff;
+       background: #da520c;
+       
+    }
+    
+    .contact-btn {
+      background: #da520c; 
+      color: #fff;
+      padding: 12px 28px; 
+      border-radius: 25px;
+      font-size: 16px; 
+      font-weight: 600;
+      text-decoration: none; 
+      white-space: nowrap;
+    }
+
+    /* Hamburger (mobile only) */
+    .menu-toggle {
+      display: none; 
+      font-size: 24px; 
+      color: #fff; 
+      cursor: pointer;
+      z-index: 1101;
+    }
+
+    /* Mobile Fullscreen Menu */
+    .mobile-menu {
+      position: fixed; 
+      top: 0; 
+      right: -100%; 
+      width: 100%; 
+      height: 100%;
+      background: #da520c;
+      display: flex; 
+      flex-direction: column; 
+      align-items: center; 
+      justify-content: center;
+      gap: 30px; 
+      z-index: 1100;
+      transition: right 0.6s ease;
+    }
+    
+    .mobile-menu.active {
+      right: 0;
+    }
+    
+    .mobile-menu a { 
+      color: #fff; 
+      font-size: 40px; 
+      font-weight: bold; 
+      text-decoration: none;
+    }
+    
+    .close-btn {
+      position: absolute; 
+      top: 20px; 
+      right: 30px;
+      font-size: 32px; 
+      color: #fff; 
+      cursor: pointer;
+    }
+
+    
+@media (max-width: 768px) {
+  .navbar ul,
+  .contact-btn {
+    display: none; /* hide desktop menu */
+  }
+  
+  .menu-toggle {
+    display: block; /* show hamburger */
+    color: #333; /* adjust color if needed */
+    margin-right: -20px;
+  }
+     .navbar .logo img {
+        margin-left: -20px;
+     }
+
+}
+    .hero {
+  display: flex;
+  height: 100vh; /* full screen */
+  width: 100%;
+  margin-top: 0; /* avoid gap under navbar if it's fixed */
+}
+
+
+
+.hero-left,
+.hero-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
+
+}
+
+/* Hero Section Styles */
+.hero-left {
+   justify-content: center;
+    gap: 40px; /* Equal spacing between h1, p, and button */
+align-items: middle;
+  background: #f4f4f4; /* you can change this to a background image */
+}
+.hero-left h1 {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: #333;
+  font-size: 90px;
+  margin-bottom: 1rem;
+  font-weight: bolder;
+  line-height: 80px;
+  margin-left: 20px;
+}
+
+.hero-left p {
+    font-family: 'Merriweather', serif;
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  max-width: 500px;
+    margin-left: 20px;
+
+}
+
+/* Highlighted word */
+.hero-left h1 .highlight {
+  color: #da520c; /* Change to any color you like */
+}
+
+.hero-left button {
+  display: inline-block !important;  /* prevent full width */
+  width: auto !important;            /* override 100% width */
+  max-width: fit-content !important;
+  padding: 14px 30px;          /* small padding */
+  font-size: 14px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;    
+  border: none;
+  background: #da520c;
+  color: white;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+    margin-left: 20px;
+
+}
+
+.hero-left button:hover {
+  background: #333;
+}
+
+.hero-right {
+  flex: 1;
+  background: url('bg1.jpg') center/cover no-repeat; /* full cover */
+  position: relative;
+}
+
+/* Optional overlay for better contrast (if you want to put text on top later) */
+.hero-right::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.3); /* dark overlay, adjust opacity */
+}
+/* Animations */
+@keyframes fadeInLeft {
+  0% { opacity: 0; transform: translateX(-50px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .hero {
+    flex-direction: column;
+    height: auto;
+    margin-top: 60px;
+  }
+  .hero-left, .hero-right {
+    flex: unset;
+    width: 100%;
+    padding: 2rem;
+  }
+  .hero-left h1 {
+    font-size: 48px;
+    line-height: 56px;
+  }
+  .hero-right{
+    display: none;
+  }
+}
+
+/* About Us Section */
+.about-us {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 50px;
+  padding: 0 20px; /* add side padding for small screens */
+}
+
+.content {
+  max-width: 1000px;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center; /* centers text for all screens */
+}
+
+/* Text and heading styles */
+.header {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.main-heading {
+  font-size: 80px;
+  font-weight: 700;
+  margin: 0;
+  line-height: 90px;
+}
+
+.main-heading .highlight {
+  color: #da520c;
+  display: inline-block;
+}
+
+.sub-text {
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin-top: 20px;
+  color: #555;
+  font-family: 'Merriweather', serif;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Buttons */
+.buttons {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 15px 30px;
+  font-size: 1em;
+  font-weight: 700;
+  border: none;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background-color: #da520c;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #333;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: #555;
+  padding: 15px 0;
+}
+
+.btn-secondary:hover {
+  color: #333;
+  border-bottom: 2px solid #333;
+}
+
+/* Image */
+.content img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  margin-top: 50px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 12px; /* optional: modern look */
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 992px) {
+  .main-heading {
+    font-size: 60px;
+    line-height: 70px;
+  }
+  .sub-text {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-heading {
+    font-size: 40px;
+    line-height: 50px;
+  }
+  .sub-text {
+    font-size: 0.95em;
+  }
+  .buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .btn {
+    width: 100%;
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-heading {
+    font-size: 32px;
+    line-height: 40px;
+  }
+  .sub-text {
+    font-size: 0.9em;
+  }
+  .content {
+    padding: 10px;
+  }
+}
+
+
+/* Styling for the new Stats Section */
+.stats-section {
+    background-color: #f1edea; /* A light, warm gray background */
+    padding: 80px 20px;
+    text-align: center;
+    border-radius: 15px; /* Rounded corners for the entire section */
+    margin: 40px auto; /* Add some margin above/below and auto for centering */
+    max-width: 1200px; /* Limit the width if it's too wide */
+}
+
+.stats-grid {
+    display: flex;
+    justify-content: space-around; /* Distribute space evenly */
+    align-items: flex-start; /* Align items to the top */
+    gap: 30px; /* Space between columns */
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+}
+
+.stat-item {
+    flex: 1; /* Allows items to grow and shrink */
+    min-width: 280px; /* Minimum width for each item before wrapping */
+    max-width: 350px; /* Maximum width for each item */
+    padding: 20px;
+    box-sizing: border-box; /* Include padding in the width */
+}
+
+.stat-number {
+    font-size: 4em; /* Large font size for numbers */
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+    line-height: 1; /* Adjust line height to prevent extra space */
+}
+
+.stat-label {
+    font-size: 1.3em;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.stat-description {
+    font-size: 0.9em;
+    color: #777;
+    line-height: 1.5;
+}
+
+/* Responsive adjustments for the stats section */
+@media (max-width: 992px) {
+    .stat-number {
+        font-size: 3.5em;
+    }
+    .stats-grid {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .stats-section {
+        padding: 60px 15px;
+        margin: 30px auto;
+        border-radius: 10px;
+    }
+    .stats-grid {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center items when stacked */
+    }
+    .stat-item {
+        min-width: unset; /* Remove min-width for stacking */
+        width: 100%; /* Take full width when stacked */
+        max-width: 400px; /* Limit max width for readability */
+        margin-bottom: 30px; /* Space between stacked items */
+    }
+    .stat-item:last-child {
+        margin-bottom: 0; /* No margin after the last item */
+    }
+    .stat-number {
+        font-size: 3em;
+    }
+    .stat-label {
+        font-size: 1.2em;
+    }
+}
+
+/* Styling for the new Solutions Section */
+.solutions-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 100px; /* Adjusted padding */
+    gap: 60px; /* Space between the two columns */
+    background-color: #fff; /* White background */
+}
+
+.solutions-left {
+    flex: 1;
+    max-width: 550px; /* Limit width for better readability */
+    text-align: left;
+}
+
+.solutions-heading {
+    font-size: 8px;
+    font-weight: 600;
+    color: #555;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+        text-align: center;
+
+}
+
+.solutions-main-heading {
+    font-size: 50px; /* Large heading */
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 25px;
+    line-height: 1.2;
+        text-align: center;
+
+}
+
+
+.solutions-buttons {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap; /* Ensure buttons wrap on small screens */
+        text-align: center;
+    justify-content: center;
+
+  }
+
+.solutions-right {
+    flex: 1;
+    display: flex; /* Use flex to center image if it's smaller than container */
+    justify-content: center;
+    align-items: center;
+    padding: 30px; /* Padding inside the right container */
+}
+
+.solutions-right img {
+    border-radius: 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 50%;
+    padding: 55px 40px;
+    display: flex;
+    background-color: #e7f1f1;
+    
+}
+
+
+/* Responsive adjustments for the Solutions Section */
+@media (max-width: 992px) {
+    .solutions-section {
+        flex-direction: column; /* Stack columns vertically */
+        text-align: center;
+        padding: 80px 20px;
+        gap: 40px;
+    }
+
+    .solutions-left {
+        max-width: 100%; /* Allow left column to take full width */
+        text-align: center;
+    }
+
+    .solutions-main-heading {
+        font-size: 2.5em;
+    }
+
+    .solutions-buttons {
+        justify-content: center; /* Center buttons when stacked */
+    }
+
+    .solutions-right {
+        width: 100%;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .solutions-main-heading {
+        font-size: 2em;
+    }
+
+    .solutions-para {
+        font-size: 1em;
+    }
+}
+
+/* Styling for the new Services Grid Section */
+.services-grid-section {
+    background-color: #f8f8f8;
+    padding: 20px 20px;
+    margin: 20px;
+    border-radius: 20px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.service-card {
+    background-color: #ffffff;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.service-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 20px;
+}
+
+.service-card h3 {
+    font-size: 1.4em;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.service-card p {
+    font-size: 1em;
+    color: #777;
+    line-height: 1.6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    .service-card {
+        padding: 30px 20px;
+    }
+}
+
+/* Styling for the new Clients Section */
+.clients-section {
+    background-color: #f1edea; /* Light, warm gray background */
+    padding: 80px 20px;
+    border-radius: 15px; /* Rounded corners for the entire section */
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.clients-content {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.clients-text {
+    flex: 1;
+    min-width: 300px; /* Ensure text column doesn't get too small */
+}
+
+.clients-heading {
+    font-size: 2.5em;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #333;
+    text-align: left;
+}
+
+.clients-logos {
+    flex: 2; /* Allows the logo grid to take up more space */
+}
+
+.logo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.logo-item {
+    background-color: #f8f8f8; /* A slightly different gray for the logo squares */
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100px; /* Ensures consistent box height */
+}
+
+.logo-item img {
+    max-width: 80%;
+    height: auto;
+    filter: grayscale(100%); /* Optional: makes logos black and white */
+    opacity: 0.7; /* Optional: subtle transparency */
+    transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.logo-item img:hover {
+    filter: grayscale(0%); /* Color on hover */
+    opacity: 1; /* Full opacity on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .clients-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .clients-text {
+        min-width: unset;
+        width: 100%;
+    }
+    .clients-heading {
+        font-size: 2em;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .logo-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
+    }
+}
+
+/* Styling for the new "Our Process" Section */
+.process-section {
+    padding: 100px 20px;
+    background-color: #fff; /* White background */
+}
+
+.process-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.process-left {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px; /* Adjust padding to give space around the image */
+    max-width: 50%; /* Control the width of the left column */
+    min-height: 450px; /* Ensure a minimum height even if image is small */
+}
+
+.process-illustration {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.process-right {
+    flex: 1;
+    max-width: 500px; /* Control the width of the right column */
+    text-align: left;
+}
+
+.process-tag {
+    font-size: 0.9em;
+    font-weight: 600;
+    color: #555;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.process-heading {
+    font-size: 3em;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+.process-description {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 40px;
+    line-height: 1.7;
+}
+
+.process-buttons {
+    display: flex;
+    gap: 20px;
+    align-items: center; /* Vertically align the button and text link */
+    flex-wrap: wrap;
+}
+
+/* Reusing .btn-primary */
+/* New style for the text-based secondary button */
+.btn-secondary-text {
+    background-color: transparent;
+    color: #555;
+    font-size: 1em;
+    font-weight: 700;
+    border: none;
+    padding: 15px 0;
+    text-decoration: none; /* Remove default underline */
+    transition: color 0.3s ease;
+}
+
+.btn-secondary-text:hover {
+    color: #333;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .process-content {
+        flex-direction: column; /* Stack columns vertically */
+        gap: 40px;
+        text-align: center;
+    }
+    .process-left, .process-right {
+        max-width: 100%; /* Allow full width when stacked */
+        flex: none;
+    }
+    .process-left {
+        min-height: 350px; /* Adjust min height for mobile */
+        padding: 30px;
+    }
+    .process-heading {
+        font-size: 2.5em;
+    }
+    .process-right {
+        text-align: center; /* Center text when stacked */
+    }
+    .process-buttons {
+        justify-content: center; /* Center buttons when stacked */
+    }
+}
+
+@media (max-width: 768px) {
+    .process-heading {
+        font-size: 2em;
+    }
+    .process-description {
+        font-size: 1em;
+    }
+    .process-left {
+        min-height: 250px;
+        padding: 20px;
+    }
+}
+
+/* Styling for the new Process Steps Section */
+.process-steps-section {
+    padding: 80px 20px;
+    background-color: #f8f8f8; /* Light background to separate it from the previous section */
+}
+
+.process-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.process-step-item {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.process-step-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.icon-circle {
+    width: 80px;
+    height: 80px;
+    background-color: #FF6347; /* Matching the brand color */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 20px;
+}
+
+.step-icon {
+    width: 40px;
+    height: 40px;
+    filter: invert(1); /* Makes the icon white */
+}
+
+.process-step-item h3 {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.process-step-item p {
+    font-size: 1em;
+    color: #555;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.process-step-item p:hover {
+    color: #FF6347;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .process-steps-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Styling for the Testimonials Section */
+.testimonials-section {
+    padding: 100px 20px;
+    background-color: #fff;
+}
+
+.testimonials-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Aligns items vertically in the middle */
+    gap: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.testimonials-left {
+    flex: 1;
+    max-width: 500px; /* Adjust as needed */
+    text-align: left;
+}
+
+.testimonials-heading {
+    font-size: 3em;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+.testimonials-description {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 40px;
+    line-height: 1.7;
+}
+
+.testimonials-buttons {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* --- Revised Image Styling --- */
+.testimonials-right {
+    flex: 1;
+    display: flex;
+    justify-content: center; /* Centers the image horizontally */
+    align-items: center; /* Centers the image vertically */
+    padding: 30px; /* Padding inside the right container */
+}
+
+.testimonials-full-image {
+    max-width: 100%; /* Ensures image is fully responsive */
+    height: auto; /* Maintains aspect ratio */
+    display: block; /* Removes extra space below image */
+    border-radius: 8px; /* Optional: adds subtle rounded corners to the image itself */
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .testimonials-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .testimonials-left {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .testimonials-buttons {
+        justify-content: center;
+    }
+
+    .testimonials-heading {
+        font-size: 2.5em;
+    }
+    
+    .testimonials-right {
+        width: 100%; /* Allow the image container to take full width */
+        padding: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .testimonials-heading {
+        font-size: 2em;
+    }
+}
+
+/* Styling for the new Testimonials Grid Section */
+.testimonials-grid-section {
+    padding: 80px 20px;
+    background-color: #f8f8f8;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.testimonial-card {
+    background-color: #ffffff;
+    padding: 50px 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.quote-icon {
+    font-size: 5em;
+    color: #333;
+    line-height: 1;
+    height: 0;
+    margin-top: -20px;
+    margin-bottom: 30px;
+    opacity: 0.8;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.testimonial-card h3 {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 15px;
+    margin-top: 20px;
+}
+
+.testimonial-text {
+    font-size: 1em;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.star-rating {
+    color: #FF6347;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.star-rating i {
+    margin: 0 2px;
+}
+
+.client-name {
+    font-weight: 700;
+    color: #333;
+    font-size: 1.1em;
+    margin-bottom: 5px;
+}
+
+.client-title {
+    font-size: 0.9em;
+    color: #888;
+    margin-bottom: 20px;
+}
+
+.client-logo {
+    max-width: 120px;
+    height: auto;
+    opacity: 0.7;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .testimonial-card {
+        padding: 40px 30px;
+    }
+}
+
+/* Styling for the new CTA Section */
+.cta-section {
+    background-color: #f1edea; /* Light, warm gray background */
+    padding: 80px 20px;
+    border-radius: 15px; /* Rounded corners for the entire section */
+    margin: 40px auto;
+    max-width: 1200px;
+    text-align: center;
+}
+
+.cta-subtitle {
+    font-size: 0.85em;
+    font-weight: 600;
+    color: #888;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    background-color: #e0e0e0; /* Slightly darker background for the subtitle tag */
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 20px;
+}
+
+.cta-main-heading {
+    font-size: 3em;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.cta-benefits {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.benefit-item {
+    font-size: 1.1em;
+    color: #555;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.benefit-item i {
+    color: #6dbe4d; /* Green color for checkmark */
+    font-size: 1.2em;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Reusing .btn-primary */
+
+/* New style for the secondary light button */
+.btn-secondary-light {
+    background-color: #e0e0e0; /* Light gray background */
+    color: #333;
+    padding: 15px 30px;
+    font-size: 1em;
+    font-weight: 700;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-secondary-light:hover {
+    background-color: #d0d0d0;
+    color: #000;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .cta-main-heading {
+        font-size: 2.5em;
+    }
+    .cta-benefits {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .benefit-item {
+        justify-content: center;
+    }
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    .btn-primary, .btn-secondary-light {
+        width: 100%;
+        max-width: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .cta-main-heading {
+        font-size: 2em;
+    }
+    .cta-section {
+        padding: 60px 15px;
+        margin: 30px auto;
+    }
+}
+
+/* Styling for the Footer */
+footer {
+    background-color: #fff;
+    padding: 80px 20px 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    padding-bottom: 50px;
+    border-bottom: 1px solid #dcdcdc;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 150px;
+}
+
+.footer-contact {
+    flex: 1.5;
+    min-width: 250px;
+}
+
+.footer-logo {
+    max-width: 150px;
+    margin-bottom: 25px;
+}
+
+.location-heading {
+    font-size: 0.9em;
+    font-weight: 700;
+    color: #333;
+    margin-top: 15px;
+}
+
+.address {
+    font-size: 0.9em;
+    color: #555;
+    line-height: 1.6;
+    margin-top: 5px;
+}
+
+.footer-email {
+    font-size: 0.9em;
+    margin-top: 20px;
+    color: #555;
+}
+
+.footer-email a {
+    color: #FF6347;
+    text-decoration: underline;
+}
+
+.footer-heading {
+    font-size: 1.2em;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    font-size: 1em;
+    color: #555;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #FF6347;
+}
+
+.copyright-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    font-size: 0.9em;
+    color: #888;
+}
+
+.social-icons a {
+    color: #888;
+    font-size: 1.2em;
+    margin-left: 20px;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #333;
+}
+
+/* Responsive adjustments for the footer */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-col {
+        margin-bottom: 30px;
+    }
+
+    .footer-col:last-child {
+        margin-bottom: 0;
+    }
+
+    .footer-logo {
+        margin: 0 auto 20px;
+    }
+
+    .footer-contact {
+        width: 100%;
+    }
+
+    .copyright-bar {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .social-icons {
+        margin-top: 10px;
+    }
+}
